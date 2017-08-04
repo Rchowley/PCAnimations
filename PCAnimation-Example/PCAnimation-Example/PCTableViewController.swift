@@ -23,7 +23,7 @@ class PCAnimationsTableViewCell: UITableViewCell {
     }
 }
 
-enum cellAnimationType : Int {
+enum animationType : Int {
     case fade
     case fromLeft
     case fromRight
@@ -32,7 +32,7 @@ enum cellAnimationType : Int {
 class PCTableViewController: UIViewController {
 
     @IBOutlet weak var tableV: UITableView!
-    var cellAnimation : cellAnimationType = .fade
+    var cellAnimation : animationType = .fade
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class PCTableViewController: UIViewController {
 
     @IBAction func actionSegmentValueChanged(_ sender: UISegmentedControl) {
         
-        cellAnimation = cellAnimationType(rawValue: sender.selectedSegmentIndex)!;
+        cellAnimation = animationType(rawValue: sender.selectedSegmentIndex)!;
         self.tableV.reloadData()
     }
 }
@@ -65,13 +65,15 @@ extension PCTableViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        //you can use this animtion function on UIView as well. Based on your needs. Shown here bacause for me it is looking good in cell animations.
         switch cellAnimation {
         case .fade:
-            PCAnimations.shared.animationFade(onCell: cell);
+            PCAnimations.shared.animationFade(onView: cell);
         case .fromLeft:
-            PCAnimations.shared.animationFromLeft(onCell: cell);
+            PCAnimations.shared.animationFromLeft(onView: cell);
         case .fromRight:
-            PCAnimations.shared.animationFromRight(onCell: cell);
+            PCAnimations.shared.animationFromRight(onView: cell);
         }
     }
 }

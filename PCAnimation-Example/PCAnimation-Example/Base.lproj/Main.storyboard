@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A306f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Rf6-SN-3ww">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A315i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Rf6-SN-3ww">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--More View Controller-->
         <scene sceneID="ms3-mg-0oL">
             <objects>
-                <viewController id="ObI-ct-RnN" sceneMemberID="viewController">
+                <viewController id="ObI-ct-RnN" customClass="MoreViewController" customModule="PCAnimation_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EIZ-fx-mmg"/>
                         <viewControllerLayoutGuide type="bottom" id="4QC-Ny-tn1"/>
@@ -21,7 +21,78 @@
                     <view key="view" contentMode="scaleToFill" id="nYP-8g-KHq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dF7-HZ-BSZ">
+                                <rect key="frame" x="10" y="20" width="355" height="340"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PCAnimations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaT-ly-T8a">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="40"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
+                                        <color key="textColor" red="0.75797212000000003" green="0.71332123869999997" blue="0.4063689063" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khU-Ja-J1R">
+                                        <rect key="frame" x="0.0" y="60" width="355" height="40"/>
+                                        <color key="backgroundColor" red="0.95976360103626945" green="0.28136963131108478" blue="0.47750331873649249" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="gbf-re-Qtg"/>
+                                        </constraints>
+                                        <state key="normal" title="Pulse">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actionButton:" destination="ObI-ct-RnN" eventType="touchUpInside" id="7eW-TA-qmq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BE4-xl-EW3">
+                                        <rect key="frame" x="0.0" y="120" width="355" height="40"/>
+                                        <color key="backgroundColor" red="0.31452673757025373" green="0.45017378038756972" blue="0.95976360103626945" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Shake">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actionButton:" destination="ObI-ct-RnN" eventType="touchUpInside" id="L9T-QT-1aw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIv-X5-dPV">
+                                        <rect key="frame" x="0.0" y="180" width="355" height="40"/>
+                                        <color key="backgroundColor" red="0.24501645294465282" green="0.95976360103626945" blue="0.22195363502957824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Flash">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actionButton:" destination="ObI-ct-RnN" eventType="touchUpInside" id="WB2-MH-dFP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XvG-7G-kIw">
+                                        <rect key="frame" x="0.0" y="240" width="355" height="40"/>
+                                        <color key="backgroundColor" red="0.89716659899703288" green="0.47537331608793576" blue="0.95976360103626945" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Pop">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actionButton:" destination="ObI-ct-RnN" eventType="touchUpInside" id="vfT-pv-JbM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSy-g8-iKh">
+                                        <rect key="frame" x="0.0" y="300" width="355" height="40"/>
+                                        <color key="backgroundColor" red="0.0" green="0.59451509839268613" blue="0.95976360103626945" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Scale">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actionButton:" destination="ObI-ct-RnN" eventType="touchUpInside" id="aM0-Sb-n6u"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dF7-HZ-BSZ" firstAttribute="top" secondItem="EIZ-fx-mmg" secondAttribute="bottom" id="LFk-jQ-5Af"/>
+                            <constraint firstItem="dF7-HZ-BSZ" firstAttribute="leading" secondItem="nYP-8g-KHq" secondAttribute="leading" constant="10" id="Q9F-Rz-Epe"/>
+                            <constraint firstAttribute="trailing" secondItem="dF7-HZ-BSZ" secondAttribute="trailing" constant="10" id="jNi-cW-xuK"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="more" id="FAP-bG-d84"/>
                 </viewController>

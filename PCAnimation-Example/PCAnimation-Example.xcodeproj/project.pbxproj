@@ -8,24 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		E93F35801F18A7520044EE52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93F357F1F18A7520044EE52 /* AppDelegate.swift */; };
-		E93F35821F18A7520044EE52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93F35811F18A7520044EE52 /* ViewController.swift */; };
 		E93F35851F18A7520044EE52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E93F35831F18A7520044EE52 /* Main.storyboard */; };
 		E93F35871F18A7520044EE52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E93F35861F18A7520044EE52 /* Assets.xcassets */; };
 		E93F358A1F18A7520044EE52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E93F35881F18A7520044EE52 /* LaunchScreen.storyboard */; };
 		E93F35921F18A81D0044EE52 /* PCAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93F35911F18A81D0044EE52 /* PCAnimations.swift */; };
 		E93F35941F19FBA40044EE52 /* PCTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93F35931F19FBA40044EE52 /* PCTableViewController.swift */; };
+		E974E9BE1F34E35500F69272 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E974E9BD1F34E35500F69272 /* MoreViewController.swift */; };
+		E974E9C01F34F02100F69272 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = E974E9BF1F34F02100F69272 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E93F357C1F18A7520044EE52 /* PCAnimation-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PCAnimation-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E93F357F1F18A7520044EE52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E93F35811F18A7520044EE52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E93F35841F18A7520044EE52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E93F35861F18A7520044EE52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E93F35891F18A7520044EE52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E93F358B1F18A7520044EE52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E93F35911F18A81D0044EE52 /* PCAnimations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCAnimations.swift; path = ../../PCAnimations.swift; sourceTree = "<group>"; };
 		E93F35931F19FBA40044EE52 /* PCTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCTableViewController.swift; sourceTree = "<group>"; };
+		E974E9BD1F34E35500F69272 /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		E974E9BF1F34F02100F69272 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +60,15 @@
 		E93F357E1F18A7520044EE52 /* PCAnimation-Example */ = {
 			isa = PBXGroup;
 			children = (
+				E93F35911F18A81D0044EE52 /* PCAnimations.swift */,
 				E93F357F1F18A7520044EE52 /* AppDelegate.swift */,
-				E93F35811F18A7520044EE52 /* ViewController.swift */,
+				E974E9BD1F34E35500F69272 /* MoreViewController.swift */,
+				E93F35931F19FBA40044EE52 /* PCTableViewController.swift */,
 				E93F35831F18A7520044EE52 /* Main.storyboard */,
 				E93F35861F18A7520044EE52 /* Assets.xcassets */,
 				E93F35881F18A7520044EE52 /* LaunchScreen.storyboard */,
 				E93F358B1F18A7520044EE52 /* Info.plist */,
-				E93F35911F18A81D0044EE52 /* PCAnimations.swift */,
-				E93F35931F19FBA40044EE52 /* PCTableViewController.swift */,
+				E974E9BF1F34F02100F69272 /* README.md */,
 			);
 			path = "PCAnimation-Example";
 			sourceTree = "<group>";
@@ -142,9 +145,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E974E9BE1F34E35500F69272 /* MoreViewController.swift in Sources */,
 				E93F35941F19FBA40044EE52 /* PCTableViewController.swift in Sources */,
+				E974E9C01F34F02100F69272 /* README.md in Sources */,
 				E93F35921F18A81D0044EE52 /* PCAnimations.swift in Sources */,
-				E93F35821F18A7520044EE52 /* ViewController.swift in Sources */,
 				E93F35801F18A7520044EE52 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

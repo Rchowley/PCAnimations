@@ -69,11 +69,11 @@ extension PCTableViewController : UITableViewDelegate, UITableViewDataSource {
         //you can use this animtion function on UIView as well. Based on your needs. Shown here bacause for me it is looking good in cell animations.
         switch cellAnimation {
         case .fade:
-            PCAnimations.shared.animationFade(onView: cell);
+            cell.animationFade();
         case .fromLeft:
-            PCAnimations.shared.animationFromLeft(onView: cell);
+            cell.animationFromLeft();
         case .fromRight:
-            PCAnimations.shared.animationFromRight(onView: cell);
+            cell.animationFromRight();
         }
     }
 }

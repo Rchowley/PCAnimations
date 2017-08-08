@@ -8,9 +8,7 @@
 
 import UIKit
 
-class PCAnimations {
-    
-    static let shared = PCAnimations();
+extension UIView {
     
     // MARK: - View Animations
     
@@ -24,7 +22,6 @@ class PCAnimations {
      Nothing
      
      - Parameters:
-        - view: the view on which the animation needs to be happen
         - fromScale: from which point it starts scaling
         - toScale: to which point it gets scaled
      
@@ -33,10 +30,10 @@ class PCAnimations {
      
      
      */
-    func animationScale(_ view: UIView, fromScale: CGFloat, toScale: CGFloat, withDuration duration: CGFloat) {
-        view.transform = CGAffineTransform(scaleX: fromScale, y: fromScale)
+    func animationScale(fromScale: CGFloat, toScale: CGFloat, withDuration duration: CGFloat) {
+        transform = CGAffineTransform(scaleX: fromScale, y: fromScale)
         UIView.animate(withDuration: TimeInterval(duration), animations: {() -> Void in
-            view.transform = CGAffineTransform(scaleX: toScale, y: toScale)
+            self.transform = CGAffineTransform(scaleX: toScale, y: toScale)
         })
     }
     
@@ -51,7 +48,6 @@ class PCAnimations {
      Nothing
      
      - Parameters:
-         - view: the view on which the animation needs to be happen
          - minimumScaleSize: from which point it starts poping
          - maximumScaleSize: to which point it gets poped
          - duration: duration for the animation
@@ -61,13 +57,13 @@ class PCAnimations {
      
      
      */
-    func animationPop(_ view: UIView, minimumSize minimumScaleSize: CGFloat, maximumSize maximumScaleSize: CGFloat, withDuration duration: CGFloat) {
-        view.transform = CGAffineTransform(scaleX: minimumScaleSize, y: minimumScaleSize)
+    func animationPop(fromMinimumSize minimumScaleSize: CGFloat, maximumSize maximumScaleSize: CGFloat, withDuration duration: CGFloat) {
+        transform = CGAffineTransform(scaleX: minimumScaleSize, y: minimumScaleSize)
         UIView.animate(withDuration: TimeInterval(duration), animations: {() -> Void in
-            view.transform = CGAffineTransform(scaleX: maximumScaleSize, y: maximumScaleSize)
+            self.transform = CGAffineTransform(scaleX: maximumScaleSize, y: maximumScaleSize)
         }, completion: {(_ finished: Bool) -> Void in
             UIView.animate(withDuration: TimeInterval(duration), animations: {() -> Void in
-                view.transform = CGAffineTransform(scaleX: minimumScaleSize, y: minimumScaleSize)
+                self.transform = CGAffineTransform(scaleX: minimumScaleSize, y: minimumScaleSize)
             })
         })
     }
@@ -85,13 +81,12 @@ class PCAnimations {
          - constraint: Constraint which constant's needs to change
          - constant: to which constant value
          - duration: animation duration
-         - controller: on which controller the constraints exists. Generally Self
      
      */
-    func animationChangeConstraints(_ constraint: NSLayoutConstraint, toValueConstant constant: CGFloat, withDuration duration: CGFloat, onController controller: UIViewController) {
+    func animationChangeConstraints(_ constraint: NSLayoutConstraint, toValueConstant constant: CGFloat, withDuration duration: CGFloat) {
         constraint.constant = constant
         UIView.animate(withDuration: TimeInterval(duration), animations: {() -> Void in
-            controller.view.layoutIfNeeded()
+            self.layoutIfNeeded()
         })
     }
     
@@ -105,7 +100,6 @@ class PCAnimations {
      Nothing
      
      - Parameters:
-         - view: the view on which the animation needs to be happen
          - fromAlpha: from which opacity it starts
          - toAlpha: to which opacity it gets
          - duration: duration for the animation
@@ -114,14 +108,14 @@ class PCAnimations {
      This function can be used for changing alpha up or down. depending upon needs
      
      */
-    func animationChangeAlpha(_ view: UIView, withDuration duration: CGFloat, andFromAlpha fromAlpha: CGFloat, andToAlpha toAlpha: CGFloat) {
-        view.alpha = fromAlpha
+    func animationChangeAlpha(withDuration duration: CGFloat, andFromAlpha fromAlpha: CGFloat, andToAlpha toAlpha: CGFloat) {
+        alpha = fromAlpha
         UIView.animate(withDuration: TimeInterval(duration), animations: {() -> Void in
-            view.alpha = toAlpha
+            self.alpha = toAlpha
         })
     }
     
-    func animationPulse(onView view: UIView) {
+    func animationPulse() {
         
         let pulse = CASpringAnimation(keyPath: "transform.scale")
         pulse.duration = 0.5
@@ -132,10 +126,10 @@ class PCAnimations {
         pulse.initialVelocity = 0.6
         pulse.damping = 1.0
         
-        view.layer.add(pulse, forKey: "pulse")
+        layer.add(pulse, forKey: "pulse")
     }
     
-    func animationFlash(onView view: UIView) {
+    func animationFlash() {
         
         let flash = CABasicAnimation(keyPath: "opacity")
         flash.duration = 0.4
@@ -145,55 +139,53 @@ class PCAnimations {
         flash.autoreverses = true
         flash.repeatCount = 2
         
-        view.layer.add(flash, forKey: nil)
+        layer.add(flash, forKey: nil)
     }
     
     
-    func animationShake(onView view: UIView) {
+    func animationShake() {
         
         let shake = CABasicAnimation(keyPath: "position")
         shake.duration = 0.3
         shake.repeatCount = 1
         shake.autoreverses = true
         
-        let centerOfView = view.center;
-        
-        let fromPoint = CGPoint(x: centerOfView.x - 5, y: centerOfView.y)
+        let fromPoint = CGPoint(x: center.x - 5, y: center.y)
         let fromValue = NSValue(cgPoint: fromPoint)
         
-        let toPoint = CGPoint(x: centerOfView.x + 5, y: centerOfView.y)
+        let toPoint = CGPoint(x: center.x + 5, y: center.y)
         let toValue = NSValue(cgPoint: toPoint)
         
         shake.fromValue = fromValue
         shake.toValue = toValue
         
-        view.layer.add(shake, forKey: "position")
+        layer.add(shake, forKey: "position")
     }
     
-    func animationFade(onView view: UIView) {
-        let actualPoint: CGPoint = view.center
-        view.layer.transform = CATransform3DMakeScale(1.2, 1.2, 1.2)
-        view.center = actualPoint
+    func animationFade() {
+        let actualPoint: CGPoint = self.center
+        layer.transform = CATransform3DMakeScale(1.2, 1.2, 1.2)
+        center = actualPoint
         UIView.animate(withDuration: 0.3, animations: {() -> Void in
-            view.layer.transform = CATransform3DMakeScale(1.0, 1.0, 1.0)
+            self.layer.transform = CATransform3DMakeScale(1.0, 1.0, 1.0)
         })
     }
     
-    func animationFromLeft(onView view: UIView) {
-        let actualPoint: CGPoint = view.center
-        let leftX: CGFloat = view.center.x - view.frame.size.width
-        view.center = CGPoint(x: leftX, y: view.center.y)
+    func animationFromLeft() {
+        let actualPoint: CGPoint = center
+        let leftX: CGFloat = center.x - frame.size.width
+        center = CGPoint(x: leftX, y: center.y)
         UIView.animate(withDuration: 0.3, animations: {() -> Void in
-            view.center = actualPoint
+            self.center = actualPoint
         })
     }
     
-    func animationFromRight(onView view: UIView) {
-        let actualPoint: CGPoint = view.center
-        let leftX: CGFloat = view.center.x + view.frame.size.width
-        view.center = CGPoint(x: leftX, y: view.center.y)
+    func animationFromRight() {
+        let actualPoint: CGPoint = center
+        let leftX: CGFloat = center.x + frame.size.width
+        center = CGPoint(x: leftX, y: center.y)
         UIView.animate(withDuration: 0.3, animations: {() -> Void in
-            view.center = actualPoint
+            self.center = actualPoint
         })
     }
 }

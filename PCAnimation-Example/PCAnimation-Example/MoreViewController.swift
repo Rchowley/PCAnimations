@@ -27,15 +27,15 @@ class MoreViewController: UIViewController {
         
         switch button.tag {
         case 0:
-            PCAnimations.shared.animationPulse(onView: button);
+            button.animationPulse();
         case 1:
-            PCAnimations.shared.animationShake(onView: button)
+            button.animationShake()
         case 2:
-            PCAnimations.shared.animationFlash(onView: button)
+            button.animationFlash()
         case 3:
-            PCAnimations.shared.animationPop(button, minimumSize: 1.0, maximumSize: 1.5, withDuration: 0.5)
+            button.animationPop(fromMinimumSize: 1.0, maximumSize: 1.5, withDuration: 0.5)
         case 4:
-            PCAnimations.shared.animationScale(button, fromScale: 1.0, toScale: 1.2, withDuration: 0.3)
+            button.animationScale(fromScale: 1.0, toScale: 1.2, withDuration: 0.3)
         default:
             print("def");
         }
